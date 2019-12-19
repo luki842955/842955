@@ -1,0 +1,135 @@
+  <html>
+    <head>
+       <title>강태경 포트폴리오</title>
+         <img src="Logo.jpg" width=30% >
+        <style>
+            body{
+                margin: 0;
+            }
+            .tap{
+                overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: cornflowerblue;
+            }
+            .tap button{
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 16px;
+                font-size: 1rem;
+                transition: 0.3s;
+                color: black;
+            }
+            .tap button:hover{
+                background-color: white;
+            }
+            .tap button.active{
+                background-color: white;
+            }
+            .content{
+                display: none;
+                padding: 6px 12px;
+                border: 1px solid #ccc;
+                border-top: none;
+            }
+                 #overlay{
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            cursor: pointer;
+            background-color: rgb(0,0,0,0.5);
+        }
+        #con{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%,-50%);
+            -ms- transform: translate(-50%,-50%);
+            -webkit- transform: translate(-50%,-50%);
+        }
+
+        }
+        </style>
+    </head>
+    <body>
+        <div class="tap">
+            <button class="link" onclick="openlink(event,'a')" id="default">웹아이콘</button>
+            <button class="link" onclick="openlink(event,'b')">어플리케이션</button>
+            <button class="link" onclick="openlink(event,'c')">홈페이지</button>
+            <button class="link" onclick="openlink(event,'d')">UI디자인</button>
+        </div>
+        <div id="a" class="content">
+            <h2>웹아이콘</h2>
+            <img src="icon.jpg" alt="" width="100%">
+            <p><b>수업시간 실습해본 여러가지 아이콘들</b></p>
+        </div>
+        <div id="b" class="content">
+            <h2>어플리케이션</h2>
+            <img src="kakao.jpg" alt="" width="100%">
+            <p><b>카카오톡 UI만들어보기 실습</b></p>
+        </div>
+        <div id="c" class="content">
+            <h2>홈페이지</h2>
+            <img src="web.jpg" alt="" width="100%">
+            <p><b>포토샵으로 구상해본 홈페이지 레이아웃</b></p>
+        </div>
+        <div id="d" class="content">
+            <h2>UI디자인</h2>
+            <img src="imagetry.png" alt="" width="100%">
+            <p><b>XD로 해본 UI구성</b></p>
+        </div>
+         <div class="footer">
+            <p>
+             <p><b>인덕대학교 웹정보디자인 수업 포트폴리오</b></p>
+                <p>201602068 강태경</p>
+             <p>@contact : curtis1234@naver.com</p>
+             <p>@Tel : 010-8429-9155</p>
+        </div>
+        
+        
+        
+        <script>
+            function openlink(evt, name){
+                var i, tapcontent, taplink;
+                tapcontent = document.getElementsByClassName('content');
+                for(i=0; i<tapcontent.length; i++){
+                    tapcontent[i].style.display ="none";
+                }
+                taplink = document.getElementsByClassName('link');
+                for(i=0; i<taplink.length; i++){
+                    taplink[i].className = taplink[i].className.replace(" active","");
+                }
+                document.getElementById(name).style.display = "block";
+                evt.currentTarget.className +=" active";
+            }
+            
+            
+            document.getElementById('default').click();
+            function on(){
+            document.getElementById("overlay").style.display ="block";
+        }
+        function off(){
+            document.getElementById("overlay").style.display ="none";
+        }
+            
+        </script>
+        <p><b>EPILOGE (Click!)</b></p>
+    <img onclick="on()" img src="present.jpg" width="7%">
+    <div id="overlay" onclick="off()">
+        <div id="con">
+            <img src="final.jpg">
+            <p><strong>수고하셨습니다!</strong></p>
+        </div>
+    </div>
+    </body>
+</html>
